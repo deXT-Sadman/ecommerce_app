@@ -10,10 +10,12 @@ import '../../features/order/presentation/checkout_page.dart';
 import '../../features/order/presentation/order_success_page.dart';
 import '../../features/order/presentation/orders_page.dart';
 import '../../features/product/presentation/pages/product_details.dart';
+import '../../features/splash/presentation/splash_screen.dart';
 
 class AppRouter {
   AppRouter._();
 
+  static const String splashPath = '/splash';
   static const String homePath = '/';
   static const String _productDetailPath = '/product/:id';
   static const String cartPath = '/cart';
@@ -28,8 +30,13 @@ class AppRouter {
   static String orderSuccessRoute(String orderId) => '/orderSuccess/$orderId';
 
   static final GoRouter router = GoRouter(
-    initialLocation: homePath,
+    initialLocation: splashPath,
     routes: [
+      GoRoute(
+        path: splashPath,
+        name: 'splash',
+        builder: (context, state) => const SplashScreen(),
+      ),
       GoRoute(
         path: homePath,
         name: 'home',
